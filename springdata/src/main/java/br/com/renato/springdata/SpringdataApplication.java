@@ -11,12 +11,12 @@ import br.com.renato.springdata.repository.CargoRepository;
 import br.com.renato.springdata.service.CrudCargoService;
 
 @SpringBootApplication
-public class SpringdataApplication implements CommandLineRunner{
-	
+public class SpringdataApplication implements CommandLineRunner {
+
 	private final CrudCargoService cargoService;
-	
+
 	private boolean system = true;
-	
+
 	public SpringdataApplication(CrudCargoService cargoService) {
 		this.cargoService = cargoService;
 	}
@@ -28,12 +28,12 @@ public class SpringdataApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		Scanner sc = new Scanner(System.in);
-		
-		while(system) {
+
+		while (system) {
 			System.out.println("Qual acao voce quer executar?");
 			System.out.println("0 - Sair");
 			System.out.println("1 - Cargo");
-			
+
 			int action = sc.nextInt();
 			if (action == 1) {
 				cargoService.inicial(sc);
@@ -41,8 +41,5 @@ public class SpringdataApplication implements CommandLineRunner{
 				system = false;
 			}
 		}
-		
-		
 	}
-
 }
